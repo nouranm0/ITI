@@ -1,0 +1,19 @@
+Day 7:
+
+Answer the following questions:
+
+1. C ++Program that has Array of pointers to struct E
+mployee. (Array of pointers to struct)
+Array size is 3, and asks the user for each pointer size
+
+2. C++ Program to calculate sum of student degrees,
+and average of each subject, asks the user for
+students and subject numbers. (Dynamic Allocation o
+f 2D Array - Pointer to Pointer)
+
+Answer "as much as you can" from the following:
+Bonus
+3. Try to implement -- jagged array -- on Assinment N
+0.2, which means:
+each student may have number of subjedts different t
+han the other.
