@@ -1,25 +1,12 @@
+﻿# Ignore everything
+*
 
-# Visual Studio temporary files
+# Allow folders
+!*/
+
+# Allow C++ source files only
+!*.cpp
+
+# Ignore Visual Studio folders explicitly
 .vs/
 **/.vs/
-
-# Build output
-[Bb]in/
-[Oo]bj/
-x64/
-x86/
-Debug/
-Release/
-
-# Visual Studio user-specific files
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
-
-# Compiled files
-*.pdb
-*.ilk
-*.obj
-*.exe
-*.dll
