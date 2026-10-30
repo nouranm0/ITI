@@ -1,0 +1,25 @@
+
+# Visual Studio temporary files
+.vs/
+**/.vs/
+
+# Build output
+[Bb]in/
+[Oo]bj/
+x64/
+x86/
+Debug/
+Release/
+
+# Visual Studio user-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Compiled files
+*.pdb
+*.ilk
+*.obj
+*.exe
+*.dll
