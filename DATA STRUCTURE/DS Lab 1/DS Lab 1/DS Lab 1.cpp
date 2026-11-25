@@ -128,6 +128,19 @@ public:
 		lst->Add(current->data);
 		return lst;
 	}
+
+	void InplaceReverse() {
+		Node* moveHEAD = head;
+		Node* moveTAIL = tail;
+		while (moveHEAD != moveTAIL && moveTAIL->next != moveHEAD) {
+			int temp = moveHEAD->data;
+			moveHEAD->data = moveTAIL->data;
+			moveTAIL->data = temp;
+			moveHEAD = moveHEAD->next;
+			moveTAIL = moveTAIL->previous;
+		}
+	}
+	
 };
 int main()
 {
@@ -138,12 +151,18 @@ int main()
 	lst->Add(15);
 	lst->Add(7);
 	lst->Add(9);
-	lst->Delete(7);
+	lst->Add(2);
 	lst->DisplayAll();
+	lst->InplaceReverse();
+	lst->DisplayAll();
+	
+	//lst->Delete(7);
+	/*
 	Linkedlist* newlst = lst->Reverse();
 	newlst->DisplayAll();
 	cout <<"search = " << lst->Search(1)<<endl;
 	lst->InsertAfter(66,5);
 	lst->DisplayAll();
 	cout<<lst->GetDataByIndex(2);
+	*/
 }
