@@ -25,6 +25,7 @@ public:
 		}
 		else {
 			node->previous = tail;
+			tail->next = node;
 			tail = node;
 		}
 	}
@@ -42,14 +43,16 @@ public:
 				return current;
 			}
 			current = current->next;
-			return NULL;
 		}
+		return NULL;
 	}
 	int Search(int Data) {
 		return GetNodeByData(Data) != NULL;
 	}
 	void Delete(int Data) {
 		Node* node = GetNodeByData(Data);
+		if (node == NULL)
+			return;
 		if (head == node) {
 			if(head == tail){
 				head = tail = NULL;
@@ -71,6 +74,8 @@ public:
 		}
 		delete node;
 	}
+
+
 };
 int main()
 {
