@@ -111,8 +111,16 @@ public:
 			return;
 		}
 	}
+	Linkedlist* Reverse() {
+		Linkedlist* lst = new Linkedlist();
+		Node* current = tail;
+		while (current != head) {
+			lst->Add(current->data);
+		}
+		return lst;
+	}
 };
 int main()
 {
-	cout << "Hello World!\n";
+	
 }
