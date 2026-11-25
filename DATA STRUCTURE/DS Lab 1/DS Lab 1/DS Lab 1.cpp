@@ -77,9 +77,9 @@ public:
 	int GetDataByIndex(int index) {
 		Node* current = head;
 		int counter = 0;
-		while (current->data != NULL) {
+		while (current != NULL) {
 			if (counter == index) {
-				return counter;
+				return current->data;
 			}
 			current = current->next;
 			counter++;
