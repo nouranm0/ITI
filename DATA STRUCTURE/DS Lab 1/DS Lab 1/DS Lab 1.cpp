@@ -1,0 +1,126 @@
+﻿#include <iostream>
+using namespace std;
+class Node
+{
+public:
+	int data;
+	Node* next, * previous;
+	Node(int data) {
+		this->data = data;
+		next = previous = NULL;
+	}
+};
+class Linkedlist
+{
+	Node* head, * tail;
+public:
+	Linkedlist() {
+		head = tail = NULL;
+	}
+
+	void Add(int Data) {
+		Node* node = new Node(Data);
+		if (head == NULL) {
+			head = tail= node;
+		}
+		else {
+			node->previous = tail;
+			tail->next = node;
+			tail = node;
+		}
+	}
+	void DisplayAll() {
+		Node* current = head;
+		while (current !=NULL) {
+			cout << current->data << endl;
+			current = current->next;
+		}
+	}
+	Node* GetNodeByData(int Data) {
+		Node* current = head;
+		while (current != NULL) {
+			if (current->data == Data) {
+				return current;
+			}
+			current = current->next;
+		}
+		return NULL;
+	}
+	int Search(int Data) {
+		return GetNodeByData(Data) != NULL;
+	}
+	void Delete(int Data) {
+		Node* node = GetNodeByData(Data);
+		if (node == NULL)
+			return;
+		if (head == node) {
+			if(head == tail){
+				head = tail = NULL;
+			}
+			else {
+				head = node->next;
+				head->previous = NULL;
+			}
+		}
+		else if(tail == node){
+			tail = node->previous;
+			tail->next = NULL;
+		}
+		else {
+			Node* A = node->previous;
+			Node* B = node->next;
+			A->next = B;
+			B->previous = A;
+		}
+		delete node;
+	}
+	int GetDataByIndex(int index) {
+		Node* current = head;
+		int counter = 0;
+		while (current != NULL) {
+			if (counter == index) {
+				return current->data;
+			}
+			current = current->next;
+			counter++;
+		}
+		return -1;
+	}
+	//     حط 5 بعد ال 15 اللي عندك  
+	// 	                  5           15 
+	void InsertAfter(int Data, int afterData) {
+		Node* After_node = GetNodeByData(afterData);
+		if (After_node != NULL) {
+			Node* New_node = new Node(Data);
+			if(After_node->next !=NULL){
+				Node* A = After_node;
+				Node* B = After_node->next;
+				A->next = New_node;
+				B->previous = New_node;
+				New_node->next = B;
+				New_node->previous = A;
+			}
+			else {
+				After_node->next = New_node;
+				New_node->next = NULL;
+				New_node->previous = After_node;
+				tail = New_node;
+			}
+		}
+		else {
+			return;
+		}
+	}
+	Linkedlist* Reverse() {
+		Linkedlist* lst = new Linkedlist();
+		Node* current = tail;
+		while (current != head) {
+			lst->Add(current->data);
+		}
+		return lst;
+	}
+};
+int main()
+{
+	
+}
