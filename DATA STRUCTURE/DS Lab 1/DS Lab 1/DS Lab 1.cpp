@@ -114,13 +114,36 @@ public:
 	Linkedlist* Reverse() {
 		Linkedlist* lst = new Linkedlist();
 		Node* current = tail;
+		if (head == NULL) {
+			return NULL;
+		}
+		if (head == tail) {
+			lst->Add(head->data);
+			return lst;
+		}
 		while (current != head) {
 			lst->Add(current->data);
+			current = current->previous;
 		}
+		lst->Add(current->data);
 		return lst;
 	}
 };
 int main()
 {
-	
+	Linkedlist* lst = new Linkedlist();
+	lst->Add(3);
+	//lst->InsertAfter(66, 3);
+	lst->Add(5);
+	lst->Add(15);
+	lst->Add(7);
+	lst->Add(9);
+	lst->Delete(7);
+	lst->DisplayAll();
+	Linkedlist* newlst = lst->Reverse();
+	newlst->DisplayAll();
+	cout <<"search = " << lst->Search(1)<<endl;
+	lst->InsertAfter(66,5);
+	lst->DisplayAll();
+	cout<<lst->GetDataByIndex(2);
 }
