@@ -140,7 +140,18 @@ public:
 			moveTAIL = moveTAIL->previous;
 		}
 	}
+	void split(int data) {
+		Node* current = GetNodeByData(data);
+		Linkedlist* split_ = new Linkedlist();
+		while (current != NULL) {
+			split_->Add(current->data);
+			current = current->next;
+		}
+		split_->DisplayAll();
+	}
+
 	
+
 };
 int main()
 {
@@ -153,8 +164,9 @@ int main()
 	lst->Add(9);
 	lst->Add(2);
 	lst->DisplayAll();
-	lst->InplaceReverse();
-	lst->DisplayAll();
+	lst->split(7);
+	//lst->InplaceReverse();
+	//lst->DisplayAll();
 	
 	//lst->Delete(7);
 	/*
