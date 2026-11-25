@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 using namespace std;
 class Node
 {
@@ -86,8 +86,31 @@ public:
 		}
 		return -1;
 	}
-
-
+	//     حط 5 بعد ال 15 اللي عندك  
+	// 	                  5           15 
+	void InsertAfter(int Data, int afterData) {
+		Node* After_node = GetNodeByData(afterData);
+		if (After_node != NULL) {
+			Node* New_node = new Node(Data);
+			if(After_node->next !=NULL){
+				Node* A = After_node;
+				Node* B = After_node->next;
+				A->next = New_node;
+				B->previous = New_node;
+				New_node->next = B;
+				New_node->previous = A;
+			}
+			else {
+				After_node->next = New_node;
+				New_node->next = NULL;
+				New_node->previous = After_node;
+				tail = New_node;
+			}
+		}
+		else {
+			return;
+		}
+	}
 };
 int main()
 {
