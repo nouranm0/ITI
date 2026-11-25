@@ -74,6 +74,18 @@ public:
 		}
 		delete node;
 	}
+	int GetDataByIndex(int index) {
+		Node* current = head;
+		int counter = 0;
+		while (current->data != NULL) {
+			if (counter == index) {
+				return counter;
+			}
+			current = current->next;
+			counter++;
+		}
+		return -1;
+	}
 
 
 };
