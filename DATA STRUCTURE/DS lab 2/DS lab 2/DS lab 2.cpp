@@ -11,7 +11,9 @@ public:
 	}
 };
 class Stack {
+
 	Node* Top;
+public:
 	Stack()
 	{
 		Top = NULL;
@@ -34,10 +36,10 @@ class Stack {
 		Data = Top->data;
 		Top = Top->previous;
 		delete node;
-		return Data;
+		return true;
 	}
+	
 };
 int main()
 {
-   
 }
