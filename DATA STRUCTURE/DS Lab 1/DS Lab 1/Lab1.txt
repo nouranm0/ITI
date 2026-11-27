@@ -1,0 +1,2 @@
+1)Implement LINKEDLIST main functions(Add - DisplayAll - GetNodeByData - Search - Delete - GetDataByIndex - InsertAfter - Reverse)
+2) BOUNS --- Implement functions (InplaceReverse - Split -Chunks)
