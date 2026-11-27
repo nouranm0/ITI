@@ -114,13 +114,67 @@ public:
 	Linkedlist* Reverse() {
 		Linkedlist* lst = new Linkedlist();
 		Node* current = tail;
+		if (head == NULL) {
+			return NULL;
+		}
+		if (head == tail) {
+			lst->Add(head->data);
+			return lst;
+		}
 		while (current != head) {
 			lst->Add(current->data);
+			current = current->previous;
 		}
+		lst->Add(current->data);
 		return lst;
 	}
+
+	void InplaceReverse() {
+		Node* moveHEAD = head;
+		Node* moveTAIL = tail;
+		while (moveHEAD != moveTAIL && moveTAIL->next != moveHEAD) {
+			int temp = moveHEAD->data;
+			moveHEAD->data = moveTAIL->data;
+			moveTAIL->data = temp;
+			moveHEAD = moveHEAD->next;
+			moveTAIL = moveTAIL->previous;
+		}
+	}
+	void split(int data) {
+		Node* current = GetNodeByData(data);
+		Linkedlist* split_ = new Linkedlist();
+		while (current != NULL) {
+			split_->Add(current->data);
+			current = current->next;
+		}
+		split_->DisplayAll();
+	}
+
+	
+
 };
 int main()
 {
+	Linkedlist* lst = new Linkedlist();
+	lst->Add(3);
+	//lst->InsertAfter(66, 3);
+	lst->Add(5);
+	lst->Add(15);
+	lst->Add(7);
+	lst->Add(9);
+	lst->Add(2);
+	lst->DisplayAll();
+	lst->split(7);
+	//lst->InplaceReverse();
+	//lst->DisplayAll();
 	
+	//lst->Delete(7);
+	/*
+	Linkedlist* newlst = lst->Reverse();
+	newlst->DisplayAll();
+	cout <<"search = " << lst->Search(1)<<endl;
+	lst->InsertAfter(66,5);
+	lst->DisplayAll();
+	cout<<lst->GetDataByIndex(2);
+	*/
 }
