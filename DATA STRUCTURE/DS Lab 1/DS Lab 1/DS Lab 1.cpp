@@ -150,8 +150,25 @@ public:
 		split_->DisplayAll();
 	}
 
-	
-
+	void chunks() {
+		Node* current = head;
+		Linkedlist** lst = new Linkedlist*[10];
+		int index = 0;
+		int size = 3;
+		while (current !=NULL) {
+			lst[index] = new Linkedlist();
+			for (size_t i = 0; i < 3; i++)
+			{
+				if (current != NULL) {
+					lst[index]->Add(current->data);
+					current = current->next;
+				}
+			}
+			lst[index]->DisplayAll();
+			cout << " ---------------- \n";
+			index++;
+		}
+	}
 };
 int main()
 {
@@ -163,11 +180,12 @@ int main()
 	lst->Add(7);
 	lst->Add(9);
 	lst->Add(2);
-	lst->DisplayAll();
-	lst->split(7);
+	lst->Add(4);
+	lst->chunks();
+	//lst->DisplayAll();
+	//lst->split(7);
 	//lst->InplaceReverse();
 	//lst->DisplayAll();
-	
 	//lst->Delete(7);
 	/*
 	Linkedlist* newlst = lst->Reverse();
