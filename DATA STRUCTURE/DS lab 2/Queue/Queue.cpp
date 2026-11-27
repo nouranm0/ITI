@@ -107,51 +107,7 @@ public:
 		cout << "front = " << front << " rear = " << rear << endl;
 	}
 };
-class QueueArray_CIRCULAR {
-	int* arr;
-	int size;
-	int front;
-	int rear;
-public:
-	QueueArray_CIRCULAR()
-	{
-		front = rear = -1;
-		size = 5;
-		arr = new int[size];
-	}
-	int Enqueue(int Data) {
-		if ((rear == size - 1 && front == 0)|| front == rear+1) return false;
-		if (front == -1) {
-			front = rear = 0;
-		}
-		else {
-			rear = (rear+1) % size;
-		}
-		arr[rear] = Data;
-		return true;
-	}
 
-	int Dequeue(int& Data) {
-		//101 means deleted --just for test
-		if (front == -1) return false;
-		if (front == rear) {
-			arr[front] = 101;
-			front = rear = -1;
-		}
-		else {
-			arr[front] = 101;
-			front = (front+1) % size;
-		}
-		return true;
-	}
-	void display() {
-		for (int i = 0;i < 5;i++) {
-			cout << arr[i] << " ";
-		}
-		cout << endl;
-		cout << "front = " << front << " rear = " << rear << endl;
-	}
-};
 
 int main()
 {
@@ -167,6 +123,7 @@ int main()
 	queue->Display();
 	queue->Enqueue(6);
 	queue->Display();*/
+
 
 	QueueArray_SHIFT *q = new QueueArray_SHIFT();
 	q->Enqueue(1);
@@ -188,55 +145,5 @@ int main()
 	q->display();
 	q->Enqueue(11);
 	q->display();
-
-	//QueueArray_SHIFT *q = new QueueArray_SHIFT();
-	//q->Enqueue(1);
-	//q->Enqueue(2);
-	//q->Enqueue(3);
-	//q->Enqueue(4);
-	//q->Enqueue(5);
-	//q->display();
-	//int x;
-	//q->Dequeue(x);
-	//q->display();
-	//q->Enqueue(6);
-	//q->display();
-	//q->Enqueue(1);
-	//q->Enqueue(2);
-	//q->display();
-	//q->Dequeue(x);
-	//q->Dequeue(x);
-	//q->display();
-	//q->Enqueue(11);
-	//q->display();
-	//for (int i = 0;i <= 5;i++) { cout << i % 5 << endl; }
-	
-	QueueArray_CIRCULAR* qq = new QueueArray_CIRCULAR();
-	qq->Enqueue(1);
-	qq->Enqueue(2);
-	qq->Enqueue(3);
-	qq->Enqueue(4);
-	qq->Enqueue(5);
-
-	qq->display();
-	int x;
-	/*qq->Dequeue(x);
-	qq->display();
-	qq->Enqueue(11);*/
-	qq->display();
-	qq->Dequeue(x);
-	qq->Dequeue(x);
-	qq->Dequeue(x);
-	qq->Dequeue(x);
-	qq->display();
-	qq->Enqueue(2);
-	qq->Enqueue(3);
-	qq->display();
-	qq->Enqueue(4);
-	qq->Enqueue(6);
-	qq->display();
-	qq->Enqueue(11);
-	qq->display();
-
 
 }
